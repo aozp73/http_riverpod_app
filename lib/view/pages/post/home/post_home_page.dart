@@ -17,13 +17,30 @@ class PostHomePage extends ConsumerWidget {
       body: Column(
         children: [
           Expanded(
-              child:
-              pm != null ? buildListView(pm.posts) : buildListView([])),
+              child: pm != null ? buildListView(pm.posts) : buildListView([])),
           ElevatedButton(
             onPressed: () {
               pc.findPosts();
             },
             child: Text("페이지로드"),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              pc.addPost("제목4");
+            },
+            child: Text("한건추가"),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              pc.removePost(1);
+            },
+            child: Text("한건삭제"),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              pc.updatePost(Post(id:2, title:"제목하하"));
+            },
+            child: Text("한건수정"),
           )
         ],
       ),
